@@ -7,17 +7,17 @@ buildscript {
             jcenter()
             mavenCentral()
             // NOTE: This is only needed when developing the plugin!
-            maven {
-                url 'D://maven/repository'
-            }
+            //maven {
+                //url 'D://maven/repository'
+            //}
         }
 
         classpath 'com.android.tools.build:gradle:3.1.1'
-        classpath 'lfp:lfp-plugin:0.0.1-SNAPSHOT'
+        //classpath 'lfp:lfp-plugin:0.0.1-SNAPSHOT'
     }
 }
 apply plugin: 'com.android.application'
-apply plugin: 'lfp'
+//apply plugin: 'lfp'
 //apply plugin: 'com.jakewharton.hugo'
 
 configurations.all {
@@ -58,8 +58,8 @@ dependencies {
         mavenCentral()
 
         // NOTE: This is only needed when developing the plugin!
-        maven {
-            url 'D://maven/repository'
-        }
+        //maven {
+            //url 'D://maven/repository'
+        //}
     }
 }

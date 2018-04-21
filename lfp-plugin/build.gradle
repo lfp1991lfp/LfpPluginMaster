@@ -1,4 +1,4 @@
-apply plugin: 'groovy'
+apply plugin: 'java-gradle-plugin'
 apply plugin: 'maven'
 
 dependencies {
@@ -6,41 +6,34 @@ dependencies {
 }
 
 dependencies {
-    implementation gradleApi()
-    implementation localGroovy()
+    compileOnly gradleApi()
     compile 'com.android.tools.build:gradle:3.1.1'
     compile 'org.aspectj:aspectjtools:1.8.9'
     compile 'org.aspectj:aspectjrt:1.8.9'
 }
 
-sourceSets {
-    main {
-        groovy {
-            srcDir 'src/main/java'
-        }
-    }
-}
-
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def mavenLocal = properties.getProperty("maven.Local")
+//def mavenLocal = properties.getProperty("maven.Local")
 
-uploadArchives {
-    repositories.mavenDeployer {
-//        repository(url: "${nexusUrl}/repository/maven-releases/") {
-//            authentication(userName: nexusName, password: nexusPass)
+//uploadArchives {
+//    repositories.mavenDeployer {
+////        repository(url: "${nexusUrl}/repository/maven-releases/") {
+////            authentication(userName: nexusName, password: nexusPass)
+////        }
+//        repository(url: uri(mavenLocal))
+////        snapshotRepository(url: "${nexusUrl}/repository/maven-snapshots/") {
+////            authentication(userName: nexusName, password: nexusPass)
+////        }
+//        pom.project {
+//            version '0.0.1-SNAPSHOT'
+//            artifactId 'lfp-plugin'
+//            groupId 'lfp'
+//            description '常用类型注解包'
 //        }
-        repository(url: uri(mavenLocal))
-//        snapshotRepository(url: "${nexusUrl}/repository/maven-snapshots/") {
-//            authentication(userName: nexusName, password: nexusPass)
-//        }
-        pom.project {
-            version '0.0.1-SNAPSHOT'
-            artifactId 'lfp-plugin'
-            groupId 'lfp'
-            description '常用类型注解包'
-        }
-    }
-}
+//    }
+//}
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
