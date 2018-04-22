@@ -1,4 +1,4 @@
-apply plugin: 'java-gradle-plugin'
+apply plugin: 'groovy'
 apply plugin: 'maven'
 
 dependencies {
@@ -6,10 +6,19 @@ dependencies {
 }
 
 dependencies {
+    compile localGroovy()
     compileOnly gradleApi()
     compile 'com.android.tools.build:gradle:3.1.1'
     compile 'org.aspectj:aspectjtools:1.8.9'
     compile 'org.aspectj:aspectjrt:1.8.9'
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src/main/java'
+        }
+    }
 }
 
 Properties properties = new Properties()

@@ -94,7 +94,7 @@ if (project.getPlugins().hasPlugin('com.android.application') ||
                 name = VERSION_NAME
                 desc = POM_DESCRIPTION//描述，自己定义
 //                released = new Date()
-                vcsTag = 'v1.0.0'
+                vcsTag = 'v1.0.1'
                 attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
             }
         }
